@@ -21,6 +21,11 @@
       </button>
     </div>
 
+    <!-- 로딩 바 -->
+    <div v-if="isLoading" class="loading-overlay">
+        <img class="logo" src="@/assets/images/popcorn.png" alt="popcorn">
+    </div>
+
     <!-- 영화 카드 -->
     <div class="movie-container">
       <div
@@ -60,6 +65,7 @@ export default {
       searchQuery: '',
       genres: [],
       movies: [],
+      isLoading: true,  // 페이지 로딩시 바로 로딩 화면이 보이게 설정
     };
   },
   computed: {
@@ -105,6 +111,11 @@ export default {
       this.movies = Array.from(
         new Map(response.data.results.map(movie => [movie.id, movie])).values()
       );
+
+      // 2초 후에 로딩 화면 숨기기
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 2000);  // 2초 동안 로딩 화면을 유지
     },
     selectGenre(genreId) {
       this.selectedGenre = genreId;
@@ -114,6 +125,7 @@ export default {
       // 호출하지 않아도 filteredMovies가 반응형으로 자동 갱신되므로 비워도 됩니다
     },
   },
+
   mounted() {
     this.fetchGenres();
     this.fetchMovies();
@@ -228,5 +240,35 @@ export default {
 .movie-overview {
   font-size: 14px;
   color: #555;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  animation: bounce 1s ease-in-out infinite;
+}
+
+/* 통통 튀는 애니메이션 */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
 }
 </style>
