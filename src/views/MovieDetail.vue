@@ -74,9 +74,15 @@ export default {
     },
   },
   mounted() {
-    this.fetchMovie();
-    this.fetchWatchProviders();
-  },
+  const id = this.$route.params.id;
+  if (!id) {
+    this.$router.replace('/');  // or show error page
+    return;
+  }
+  this.fetchMovie();
+  this.fetchWatchProviders();
+},
+
 };
 </script>
 

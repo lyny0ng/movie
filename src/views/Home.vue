@@ -23,7 +23,7 @@
 
     <!-- 로딩 바 -->
     <div v-if="isLoading" class="loading-overlay">
-        <img class="logo" src="@/assets/images/popcorn.png" alt="popcorn">
+        <img class="logo" src="../assets/images/popcorn.png" alt="popcorn">
     </div>
 
     <!-- 영화 카드 -->
