@@ -88,7 +88,7 @@ export default {
 
 <style scoped>
 .movie-detail {
-  padding: 20px;
+  padding: 20px 0;
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
@@ -98,12 +98,12 @@ export default {
 .back-button {
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 30px;
   cursor: pointer;
   color: #ff6b6b;
   position: absolute;
-  left: -10px;
-  top: 15px;
+  left: 0px;
+  top: -20px;
   padding: 0;
 }
 
