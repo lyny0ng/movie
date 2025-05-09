@@ -177,6 +177,7 @@ export default {
   transition: background-color 0.3s;
   white-space: nowrap;
   font-size: 0.85rem;
+  color: #fff !important;
 }
 .genre-button.active {
   background-color: #ff6b6b;
