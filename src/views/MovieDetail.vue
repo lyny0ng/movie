@@ -88,7 +88,7 @@ export default {
 
 <style scoped>
 .movie-detail {
-  padding: 20px 0;
+  padding: 20px;
   max-width: 600px;
   margin: 0 auto;
   text-align: center;

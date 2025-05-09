@@ -24,7 +24,7 @@ export default {
 }
 
 .content {
-  padding: 20px;
+  padding: 0;
   padding-top: 0px;
   position: relative;
 }
